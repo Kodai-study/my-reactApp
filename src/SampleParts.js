@@ -13,10 +13,16 @@ const SampleParts = (props) => {
 // (チェックボックス) (props で受け取った文字列)  文字列は太字
 
 const TodoComponent = (props) => {
+
+  const taskCompletedToggleHandler = () => {
+    props.completedToggleHandler(props.value.key);
+  }
+
   return (
     <div>
-      <input type="checkbox" />
-      <span style={{ fontWeight: "bold" }}>{props.value}</span>
+      <input type="checkbox" checked={props.value.completed} readOnly 
+      onChange={taskCompletedToggleHandler}/>
+      <span style={{ fontWeight: "bold" }}>{props.value.text}</span>
     </div>
   );
 };
