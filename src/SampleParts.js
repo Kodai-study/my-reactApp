@@ -20,8 +20,8 @@ const TodoComponent = (props) => {
 
   return (
     <div>
-      <input type="checkbox" checked={props.value.completed} readOnly 
-      onChange={taskCompletedToggleHandler}/>
+      <input type="checkbox" checked={props.value.completed} readOnly
+        onChange={taskCompletedToggleHandler} />
       <span style={{ fontWeight: "bold" }}>{props.value.text}</span>
     </div>
   );
