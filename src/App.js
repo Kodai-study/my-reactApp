@@ -15,10 +15,8 @@ function App() {
 
 	const handleClickAddTodoButton = () => {
 		console.log(todoTextInput.current.value);
-
 		//テキストボックスから入力された値を取得して、リストに追加する
 		setTodoList([...multiProps, { key: multiProps.length + 1, text: todoTextInput.current.value, completed: false }]);
-
 	}
 
 	const taskCompletedToggleHandler = (id) => {
@@ -34,17 +32,15 @@ function App() {
 
 
 	return (
-		<>
+		<div className='main'>
 			<input type="text" id="add-text" placeholder="入力してください" ref={todoTextInput} />
 			<button onClick={handleClickAddTodoButton}>追加</button>
-
 			<button onClick={linkTo}>リンク</button>
-
 			<SampleParts count={count} />
 			<SampleMultiprops multiProps={multiProps} completedToggleHandler={taskCompletedToggleHandler} />
 			<button onClick={() => setTodoList(multiProps.filter((todo) => !todo.completed))}>削除</button>
 			<p>未完了のタスク数: {multiProps.filter((todo) => !todo.completed).length}</p>
-		</>
+		</div>
 	);
 }
 

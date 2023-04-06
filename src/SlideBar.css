@@ -1,0 +1,70 @@
+/* 次のHTML要素を、サイドバーとして左20%の幅で表示cssを記述する。 */
+/*<div class="sideBar"><ul><li><a href="/ホーム/">ホーム</a></li><li><a href="/登録/">登録</a></li><li><a href="/ログイン/">ログイン</a></li></ul></div>*/
+/* サイドバーの文字色を白色にする */
+.sideBar {
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    background-color: #111;
+    color: #fff;
+
+    
+    transition: width 0.5s;
+    overflow: visible;
+}
+
+.sideBar ul li {
+    list-style-type: none;
+}
+
+.sideBar ul li a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+.sideBar ul li a:hover {
+    color: #f1f1f1;
+}
+
+/* ホームページのメインコンテンツを、サイドバーの右側に配置する */
+.main {
+    margin-left: 20%;
+    font-size: 28px;
+    padding: 0px 10px;
+}
+
+/* .sideBar ul li a  に対して、カーソルが合わさったときに、少し右にずれるアニメーションを追加するcss */
+.sideBar ul li a {
+    /* アニメーションの種類を指定 */
+    transition: 0.3s;
+}
+
+.sideBar ul li a:hover {
+    /* アニメーションの種類を指定 */
+    transform: translateX(10px);
+}
+
+.slideOut{
+    /* アニメーションの種類を指定 */
+    animation: anim_slideOut 0.5s;
+}
+
+/* 0.5秒かけて、横幅を100%から0%にするアニメーションを作成 */
+@keyframes anim_slideOut {
+    from {width: 20%;}
+    to {width: 0%;}
+}
+
+/* 0.5秒かけて、横幅を0%から100%にするアニメーションを作成 */
+@keyframes anim_slideIn {
+    from {width: 0%;}
+    to {width: 100%;}
+}

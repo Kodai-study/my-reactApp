@@ -9,13 +9,14 @@ import App from './App';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SampleParts from './SampleParts';
 import Second from './Second';
+import SideBar from './SideBar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path={`/`} element={<App />} />
+        <Route path={`/`} element={<><App /> <SideBar /></>} />
         <Route path={`/register/`} element={<SampleParts />} />
         <Route path={`/login/`} element={<Second />} />
       </Routes>
