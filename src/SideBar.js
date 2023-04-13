@@ -36,21 +36,15 @@ const SlideBar = () => {
 
 
 const SideBar = () => {
-
-
     const [isToggled, setIsToggled] = useState(true);
 
     const handleClick = () => {
         setIsToggled(!isToggled);
     };
 
-    // cssのクラス sideBar と、その子要素全てに スタイルを割り当てる
-
-
-
     return (
         <>
-            <button className="ss" onClick={handleClick}>メニュー</button>
+            <button className="ss" onClick={handleClick}>おメニュ</button>
             <div className="sideBar"
                 style={{ width: isToggled ? '20%' : '0' }}>
                 <button className="menuButton" onClick={handleClick}>メニュー</button>
@@ -70,8 +64,4 @@ const SideBar = () => {
     );
 };
 
-
 export default SideBar;
-
-// Path: src\SideBar.css
-// サイドバーを表示するためのCSS

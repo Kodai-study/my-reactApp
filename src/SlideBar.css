@@ -12,7 +12,6 @@
     padding-top: 20px;
     background-color: #111;
     color: #fff;
-
     
     transition: width 0.5s;
     overflow: visible;
@@ -45,6 +44,7 @@
 .sideBar ul li a {
     /* アニメーションの種類を指定 */
     transition: 0.3s;
+    margin-right: 100px;
 }
 
 .sideBar ul li a:hover {
