@@ -3,18 +3,10 @@
 /* サイドバーの文字色を白色にする */
 .sideBar {
     width: 20%;
-    height: 100%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    overflow-x: hidden;
     padding-top: 20px;
     background-color: #111;
     color: #fff;
-    
     transition: width 0.5s;
-    overflow: visible;
 }
 
 .sideBar ul li {
@@ -52,19 +44,29 @@
     transform: translateX(10px);
 }
 
-.slideOut{
+.slideOut {
     /* アニメーションの種類を指定 */
     animation: anim_slideOut 0.5s;
 }
 
 /* 0.5秒かけて、横幅を100%から0%にするアニメーションを作成 */
 @keyframes anim_slideOut {
-    from {width: 20%;}
-    to {width: 0%;}
+    from {
+        width: 20%;
+    }
+
+    to {
+        width: 0%;
+    }
 }
 
 /* 0.5秒かけて、横幅を0%から100%にするアニメーションを作成 */
 @keyframes anim_slideIn {
-    from {width: 0%;}
-    to {width: 100%;}
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
 }

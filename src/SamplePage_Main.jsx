@@ -4,7 +4,7 @@ import './App.css';
 import SampleParts from './SampleParts';
 import SampleMultiprops from './Sample_multiprops';
 
-function App() {
+function SamplePage_Main() {
 
 	const [count] = useState(100);
 	const [multiProps, setTodoList] = useState([{ key: 1, text: "first Props", completed: false }, { key: 2, text: "second Props", completed: true }]);
@@ -44,4 +44,4 @@ function App() {
 	);
 }
 
-export default App;
+export default SamplePage_Main;

@@ -35,7 +35,7 @@ const SlideBar = () => {
 // ボタンを押すと、サイドバーが閉じる
 
 
-const SideBar = () => {
+const SamplePage_SideBar = () => {
     const [isToggled, setIsToggled] = useState(true);
 
     const handleClick = () => {
@@ -43,25 +43,22 @@ const SideBar = () => {
     };
 
     return (
-        <>
-            <button className="ss" onClick={handleClick}>おメニュ</button>
-            <div className="sideBar"
-                style={{ width: isToggled ? '20%' : '0' }}>
-                <button className="menuButton" onClick={handleClick}>メニュー</button>
-                <ul>
-                    {menuList.map((menu) => {
-                        return (
-                            <li key={menu.id}>
-                                <a href={`/${menu.name}/`}
-                                    style={{ width: isToggled ? '100%' : '0' }}>
-                                    {isToggled ? menu.name : ''}</a>
-                            </li>
-                        );
-                    })}
-                </ul>
-            </div>
-        </>
+        <div className="sideBar"
+            style={{ width: isToggled ? '20%' : '0' }}>
+            <button className="menuButton" onClick={handleClick}>メニュー</button>
+            <ul>
+                {menuList.map((menu) => {
+                    return (
+                        <li key={menu.id}>
+                            <a href={`/${menu.name}/`}
+                                style={{ width: isToggled ? '100%' : '0' }}>
+                                {isToggled ? menu.name : ''}</a>
+                        </li>
+                    );
+                })}
+            </ul>
+        </div>
     );
 };
 
-export default SideBar;
+export default SamplePage_SideBar;
