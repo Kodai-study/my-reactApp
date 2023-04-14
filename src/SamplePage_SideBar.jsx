@@ -2,7 +2,7 @@
 // デフォルトのHTML要素のみで構成する。
 // ボタンを押すと、そのボタンに対応するコンポーネントを表示する。
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./SlideBar.css";
 
 // ボタンをリストで表示するコンポーネントを作成する
@@ -42,16 +42,43 @@ const SamplePage_SideBar = () => {
         setIsToggled(!isToggled);
     };
 
+    // sidebarRef に、.sidebar クラスの要素を格納する
+    const sideBarRef = useRef(null);
+
+    const updateSidebarWidth = () => {
+        const contentWidth = sideBarRef.current.querySelector(".menuList").scrollWidth;
+
+        if (isToggled) {
+            sideBarRef.current.style.width = `${contentWidth + 20}px`;
+        } else {
+            sideBarRef.current.style.width = "40px";
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("resize", updateSidebarWidth);
+        return () => {
+            window.removeEventListener("resize", updateSidebarWidth);
+        };
+    }, []);
+
+
+    // 画面が表示されてすぐ、updateSidebarWidth を実行する
+    useEffect(() => {
+        updateSidebarWidth();
+    }, []);
+
     return (
-        <div className="sideBar"
-            style={{ width: isToggled ? '20%' : '0' }}>
+        <div className="sideBar" ref={sideBarRef}
+            style={{ width: isToggled ? '20%' : '30px' }}>
             <button className="menuButton" onClick={handleClick}>メニュー</button>
-            <ul>
+            <ul className="menuList">
                 {menuList.map((menu) => {
                     return (
-                        <li key={menu.id}>
+                        <li key={menu.id} className="menu">
                             <a href={`/${menu.name}/`}
-                                style={{ width: isToggled ? '100%' : '0' }}>
+                                // 文字サイズを変更する
+                                style={{ fontSize: isToggled ? '40px' : '0', width: isToggled ? '100%' : '0' }}>
                                 {isToggled ? menu.name : ''}</a>
                         </li>
                     );

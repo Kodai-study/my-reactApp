@@ -7,10 +7,20 @@
     background-color: #111;
     color: #fff;
     transition: width 0.5s;
+    top: 0;
+    bottom: 0;
+}
+
+html,
+body,
+.container {
+    height: 100%;
 }
 
 .sideBar ul li {
     list-style-type: none;
+    /* 改行しないようにする */
+    white-space: nowrap;
 }
 
 .sideBar ul li a {
@@ -42,31 +52,4 @@
 .sideBar ul li a:hover {
     /* アニメーションの種類を指定 */
     transform: translateX(10px);
-}
-
-.slideOut {
-    /* アニメーションの種類を指定 */
-    animation: anim_slideOut 0.5s;
-}
-
-/* 0.5秒かけて、横幅を100%から0%にするアニメーションを作成 */
-@keyframes anim_slideOut {
-    from {
-        width: 20%;
-    }
-
-    to {
-        width: 0%;
-    }
-}
-
-/* 0.5秒かけて、横幅を0%から100%にするアニメーションを作成 */
-@keyframes anim_slideIn {
-    from {
-        width: 0%;
-    }
-
-    to {
-        width: 100%;
-    }
 }
