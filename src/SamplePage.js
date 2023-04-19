@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import SamplePage_SideBar from './SamplePage_SideBar'
 import SamplePage_Main from './SamplePage_Main'
+// 通知バッジのコンポーネントをインポート
 
 export default class SamplePage extends Component {
   render() {

@@ -2,14 +2,15 @@
 /*<div class="sideBar"><ul><li><a href="/ホーム/">ホーム</a></li><li><a href="/登録/">登録</a></li><li><a href="/ログイン/">ログイン</a></li></ul></div>*/
 /* サイドバーの文字色を白色にする */
 .sideBar {
-    width: 20%;
+    width: auto;
     padding-top: 20px;
     background-color: #111;
     color: #fff;
-    transition: width 0.5s;
+    transition: all 0.5s;
     top: 0;
     bottom: 0;
 }
+
 
 html,
 body,
@@ -42,14 +43,46 @@ body,
     padding: 0px 10px;
 }
 
+ul li a {
+    /* 横移動のアニメーションは0.3秒、それ以外は全て0.5秒 */
+    transition: transform 0.3s, margin 0.5s, font-size 0.4s, margin-right 0.5s;
+}
+
 /* .sideBar ul li a  に対して、カーソルが合わさったときに、少し右にずれるアニメーションを追加するcss */
 .sideBar ul li a {
-    /* アニメーションの種類を指定 */
-    transition: 0.3s;
     margin-right: 100px;
+    font-size: 3em;
+}
+
+.sideBar.close ul li a {
+    margin-right: 0px;
+    font-size: 0px;
 }
 
 .sideBar ul li a:hover {
     /* アニメーションの種類を指定 */
     transform: translateX(10px);
+}
+
+
+/* menuButtonのidを持つ要素を、メニューの開閉によって回転させる 。  
+メニューが閉じられると、.sideBarのクラスにcloseが追加されるようになっている。 */
+#menuButton {
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#menuButton:hover {
+    color: #f1f1f1;
+}
+
+
+/* メニューが開いているときに、#menuButtonの要素を回転させる */
+.sideBar #menuButton {
+    transform: rotate(0deg);
+}
+
+/* メニューが閉じられたときに、#menuButtonの要素を回転させる */
+.sideBar.close #menuButton {
+    transform: rotate(180deg);
 }

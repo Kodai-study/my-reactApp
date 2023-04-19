@@ -4,6 +4,11 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import "./SlideBar.css";
+import img_hub from "./ham-menu-image01.png";
+import Badge from '@mui/material/Badge'
+import { Icon } from '@mui/material';
+import MailIcon from '@mui/icons-material/Email';
+
 
 // ボタンをリストで表示するコンポーネントを作成する
 const menuList = [
@@ -55,31 +60,38 @@ const SamplePage_SideBar = () => {
         }
     };
 
-    useEffect(() => {
-        window.addEventListener("resize", updateSidebarWidth);
-        return () => {
-            window.removeEventListener("resize", updateSidebarWidth);
-        };
-    }, []);
+    // .sideBar クラスの横幅を変更する関数
 
 
-    // 画面が表示されてすぐ、updateSidebarWidth を実行する
-    useEffect(() => {
-        updateSidebarWidth();
-    }, []);
 
     return (
-        <div className="sideBar" ref={sideBarRef}
-            style={{ width: isToggled ? '20%' : '30px' }}>
-            <button className="menuButton" onClick={handleClick}>メニュー</button>
+        <div className={isToggled ? "sideBar" : "sideBar close"}
+            ref={sideBarRef}>
+            <button id="menuButton" onClick={handleClick}><img src={img_hub}
+                // 30px 30pxの大きさにする
+                width="50px" height="50px"
+            /></button>
+
+            <Badge badgeContent={4} color="secondary">
+                <MailIcon color="write" />
+            </Badge>
+            <Badge badgeContent={4} color="error" sx={{
+                '& > .MuiBadge-badge': {
+                    fontSize: '1.5rem', // ここでフォントサイズを変更する
+                },
+            }} 
+            // バッジの大きさを変更する
+            
+            >
+                {/* 40dp * 40dpのメールアイコンを表示する */}
+                <MailIcon color="write" sx={{ fontSize: 100 }} />
+            </Badge>
             <ul className="menuList">
                 {menuList.map((menu) => {
                     return (
                         <li key={menu.id} className="menu">
-                            <a href={`/${menu.name}/`}
-                                // 文字サイズを変更する
-                                style={{ fontSize: isToggled ? '40px' : '0', width: isToggled ? '100%' : '0' }}>
-                                {isToggled ? menu.name : ''}</a>
+                            <a href={`/${menu.name}/`}>
+                                {menu.name}</a>
                         </li>
                     );
                 })}
